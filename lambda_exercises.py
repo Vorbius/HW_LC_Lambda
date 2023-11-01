@@ -7,9 +7,13 @@ Even numbers from the said list:
 Odd numbers from the said list:
 [1, 3, 5, 7, 9]
 '''
+numbers=[1,2,3,4,5,6,7,8,9,10]
+filter_odd=list(filter(lambda num: not num %2, numbers))
 
+filter_even=list(filter(lambda num: num % 2, numbers))
 
-
+print(filter_even)
+print(filter_odd)
 
 
 ''' 2)
@@ -19,7 +23,11 @@ find which days of the week have exactly 6 characters.
 weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
 
+count = lambda i: len(i)
 
+for i in weekdays:
+    if count(i) ==6:
+        print(i)
 
 
 
@@ -39,10 +47,13 @@ After removing the specified words from the said list:
 
 '''
 
+colors= ['orange', 'red', 'green', 'blue', 'white', 'black']
+remove=['orange','black']
 
+new_colors=list(filter(lambda x: x not in remove ,colors))
+print(new_colors)
 
-
-
+#print(new_colors)
 
 
 
@@ -59,9 +70,11 @@ Remove all elements from 'list1' present in 'list2:
  '''
 
 
+list1= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+list2= [2, 4, 6, 8]
 
-
-
+new_list=list(filter(lambda x: x not in list2,list1))
+print(new_list)
 
 ''' 5)
 find the elements of a given list of strings that contain specific substring using lambda
@@ -77,7 +90,11 @@ Elements of the said list that contain specific substring:
 []
 
 '''
-
+o_list=['red', 'black', 'white', 'green', 'orange']
+test1=list(filter(lambda x: 'ack' in x,o_list))
+test2=list(filter(lambda x: 'abc' in x,o_list))
+print(test1)
+print(test2)
 
 
 
@@ -92,9 +109,12 @@ str1 = "Hello8world"
 str1 = "HELLO"
 str1= "hello"
 
-
-
-
+check= lambda x: any( x.islower for x in str1) and any (x.isupper for x in str1) and len(str1)>=8
+#check=list(map(lambda x: any(str(x).lower in str(x) and str(x).upper in str(x) and len(x)>8),str1))
+if check(str1):
+    print("Password Accepted")
+else:
+    print("Password missing important part")
 
 
 
@@ -112,3 +132,9 @@ original_scores = [('English', 88), ('Science', 90), ('Maths', 97), ('Social sci
 # Expected Result:
 # [('Social sciences', 82), ('English', 88), ('Science', 90), ('Maths', 97)]
 '''
+
+original_scores = [('English', 88), ('Science', 90), ('Maths', 97), ('Social sciences', 82)]
+
+l=sorted (original_scores, key = lambda x: x[1])
+
+print(l)
